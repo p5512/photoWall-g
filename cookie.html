@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var oDate = new Date();
+     oDate.setDate(oDate.getDate()+1) 
+
+    document.cookie='name=aimme;max-age=1000';
+    document.cookie='age=30;expires='+ oDate;
+
+
+    manageCookie = {
+      
+
+      setCookie :function(name,value,date){
+           document.cookie = name + '='+ value+'; max age='+date;
+           return this;
+      },
+        removeCookie:function(name){
+            return this.setCookie(name,'',-1)
+        },
+        getCookie:function(){
+           var allCookieArr = document.cookie.split('; '),
+           for(var i=0;i<allCookieArr.length;i++){
+               var itemCookie = allCookieArr[i].split('=');
+               if(itemCookie[0] == 'name'){
+                  callback(itemCookie[1]);
+                  return this;
+
+
+               }
+
+           }
+           callback(undefined)
+
+
+
+        }
+
+
+    }
+    
+    </script>
+</body>
+</html>
